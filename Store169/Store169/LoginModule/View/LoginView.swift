@@ -35,7 +35,6 @@ struct LoginView: View {
     @State private var showingDetail = false
     
     var body: some View {
-        NavigationView {
             VStack {
                 Spacer()
                     .frame(height: 1)
@@ -49,7 +48,6 @@ struct LoginView: View {
                     .ignoresSafeArea(.all, edges: .all)
                 
             )
-        }
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {
                 Button {
