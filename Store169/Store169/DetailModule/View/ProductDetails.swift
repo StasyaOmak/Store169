@@ -6,10 +6,10 @@
 //
 
 import SwiftUI
-
+/// Экран отображения товара 
 struct ProductDetails: View {
 
-    enum Constants {
+    private enum Constants {
         static let priceNameLabel = "Price: "
         static let buyNowLabel = "Buy Now"
         static let articleLabel = "Article:"
@@ -18,7 +18,6 @@ struct ProductDetails: View {
     }
     
     @Environment(\.presentationMode) var presentationMode
-    @ObservedObject private var viewModel = DetailViewModel()
     @State var text = ""
     @State var totalChars = 0
     @State var lastText = ""
@@ -53,6 +52,8 @@ struct ProductDetails: View {
                 UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
             }
     }
+    
+    @ObservedObject private var viewModel = DetailViewModel()
     
     private var textEditor: some View {
         HStack {

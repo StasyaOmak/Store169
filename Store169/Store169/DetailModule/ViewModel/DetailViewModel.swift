@@ -6,10 +6,10 @@
 //
 
 import SwiftUI
-
+/// Экран детального описания товара
 class DetailViewModel: ObservableObject {
     
-    enum Constants {
+    private enum Constants {
         static let titleLabel = "Sofa Elda 900"
         static let imageName = "couch"
         static let priceLabel = 999

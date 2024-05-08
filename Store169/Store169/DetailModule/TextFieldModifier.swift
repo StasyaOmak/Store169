@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+/// настройка внешнего вида и поведения текстового поля
 struct TetxtFieldModifier: ViewModifier {
     func body(content: Content) -> some View {
         content

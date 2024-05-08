@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+/// Экран верефикации
 struct VerificationView: View {
     
     private enum Constants {
@@ -16,6 +16,10 @@ struct VerificationView: View {
         static let verificationCode = "Verification code"
         static let checkTheSMS = "Check the SMS"
         static let messageVerification = "message to get verification code"
+        static let verefacitionLabel = "Verification"
+        static let chevron = "chevron.left"
+        static let fillLabel = "Fill in from message"
+        static let okLabel = "Ok"
     }
     
     enum FieldFocusNumber: Hashable {
@@ -24,18 +28,6 @@ struct VerificationView: View {
         case thirdNumber
         case lastNumber
     }
-    
-    @Environment(\.dismiss) private var dismiss
-    @State private var numberOne = ""
-    @State private var numberTwo = ""
-    @State private var numberThree = ""
-    @State private var numberFour = ""
-    @State private var generatedCode = ""
-    @State private var isShowAlert = false
-    @State private var isShowProgressView = false
-
-    @FocusState private var focused: FieldFocusNumber?
-
     
     var body: some View {
         NavigationView {
@@ -71,13 +63,13 @@ struct VerificationView: View {
             }
         }
         .navigationBarTitleDisplayMode(.inline)
-        .navigationTitle("Verification")
+        .navigationTitle(Constants.verefacitionLabel)
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {
                 Button {
                     dismiss()
                 } label: {
-                    Image(systemName: "chevron.left")
+                    Image(systemName: Constants.chevron)
                 }
                 .tint(.white)
             }
@@ -85,6 +77,17 @@ struct VerificationView: View {
         
         .navigationBarBackButtonHidden(true)
     }
+    
+    @Environment(\.dismiss) private var dismiss
+    @State private var numberOne = ""
+    @State private var numberTwo = ""
+    @State private var numberThree = ""
+    @State private var numberFour = ""
+    @State private var generatedCode = ""
+    @State private var isShowAlert = false
+    @State private var isShowProgressView = false
+
+    @FocusState private var focused: FieldFocusNumber?
     
     private var textFieldsForCode: some View {
         HStack {
@@ -214,10 +217,10 @@ struct VerificationView: View {
                     }
                     .alert(isPresented: $isShowAlert) {
                         Alert(
-                            title: Text("Fill in from message"),
+                            title: Text(Constants.fillLabel),
                             message: Text(generateRandomCode()),
                             primaryButton: .default(
-                                Text("Ok"),
+                                Text(Constants.okLabel),
                                 action: {
                                     fillTextField(with: generatedCode)
                                 }),

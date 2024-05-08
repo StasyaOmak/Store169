@@ -6,18 +6,18 @@
 //
 
 import SwiftUI
-
+/// Стартовый экран
 struct GetStartedPage: View {
     
-    enum Constants {
+    private enum Constants {
         static let shopLabel = "169.ru"
         static let getStartedButtonLabel = "Get Started"
         static let doNotHaveAccountLabel = "Don't have an account?"
         static let singLabel = "Sing in here"
+        static let imageLink = "https://source.unsplash.com/300x300/?furniture"
+        static let questionMark = "questionmark"
     }
-    
-    @State private var showingDetail = false
-  
+ 
     var body: some View {
         NavigationView {
             ZStack {
@@ -41,6 +41,8 @@ struct GetStartedPage: View {
             }
         }
     }
+    
+    @State private var showingDetail = false
     
     private var gradient: some View {
         LinearGradient(colors: [.darkGreen, .darkGreen.opacity(0.2)], startPoint: .bottom, endPoint: .top)
@@ -94,7 +96,7 @@ struct GetStartedPage: View {
     }
     
     var asynkImageView: some View {
-           AsyncImage(url: URL(string: "https://source.unsplash.com/300x300/?furniture")) { phase in
+        AsyncImage(url: URL(string: Constants.imageLink)) { phase in
                switch phase {
                case .empty:
                    ProgressView()
@@ -114,7 +116,7 @@ struct GetStartedPage: View {
                    
                case .failure(let error):
                    VStack {
-                       Image(systemName: "questionmark")
+                       Image(systemName: Constants.questionMark)
                        Text(error.localizedDescription)
                            .font(.headline )
                    }

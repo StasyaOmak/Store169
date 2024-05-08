@@ -23,16 +23,16 @@ struct LoginView: View {
         static let checkVerificationLabel = "Check Verification"
         static let error = "Ошибка"
         static let makePassword = "Пароль должен быть больше 6 символов"
+        static let loginLabel = "Log in"
+        static let chevron = "chevron.left"
     }
     
     @Environment(\.presentationMode) var presentationMode
-    @Environment(\.dismiss) private var dismiss
     @ObservedObject var viewModel = LoginViewModel()
     @State var totalPasswordChars = 0
     @State var lastPasswordText = ""
     @FocusState var isPhoneFocused: Bool
     @FocusState var isPasswordFocused: Bool
-    @State private var showingDetail = false
     
     var body: some View {
             VStack {
@@ -53,7 +53,7 @@ struct LoginView: View {
                 Button {
                     dismiss()
                 } label: {
-                    Image(systemName: "chevron.left")
+                    Image(systemName: Constants.chevron)
                 }
                 .tint(.white)
             }
@@ -65,6 +65,8 @@ struct LoginView: View {
     @State private var passwordText = ""
     @State private var isForgotAlertShow = false
     @State private var isPasswordAlertShow = false
+    @State private var showingDetail = false
+    @Environment(\.dismiss) private var dismiss
     
     private var mainView: some View {
         VStack {
@@ -131,7 +133,7 @@ struct LoginView: View {
                 .stroke(.loginGray, lineWidth: 2)
                 .frame(width: 150, height: 51)
                 .overlay {
-                    Text("Log in")
+                    Text(Constants.loginLabel)
                         .foregroundStyle(
                             LinearGradient(colors: [.darkGreen, .darkGreen.opacity(0.2)], startPoint: .bottom, endPoint: .top)
                         )
