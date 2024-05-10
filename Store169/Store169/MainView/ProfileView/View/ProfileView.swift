@@ -8,6 +8,11 @@
 import SwiftUI
 
 struct ProfileView: View {
+    
+    private enum Constants {
+        static let nameLabel = "Marsupilami"
+        static let cityLabel = "Palombia"
+    }
     @ObservedObject var profileViewModel = ProfileViewModel()
     
     var body: some View {
@@ -42,12 +47,12 @@ struct ProfileView: View {
                 .clipShape(Circle())
                 .frame(width: 150, height: 150)
             
-            Text("Marsupilami")
+            Text(Constants.nameLabel)
                 .font(.system(size: 24, weight: .heavy))
                 .foregroundStyle(.detailLabel)
             HStack {
                 Image(.point)
-                Text("Palombia")
+                Text(Constants.cityLabel)
             }
         }
         .padding(.top, 45)
@@ -65,7 +70,7 @@ struct ProfileView: View {
     private func setupSettingCell(setting: Setting) -> some View {
         ZStack {
             NavigationLink(destination: {
-                Text("Account/Payment")
+                Text("")
             }) {
                 Rectangle()
             }
