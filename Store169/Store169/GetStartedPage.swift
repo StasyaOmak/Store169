@@ -42,7 +42,8 @@ struct GetStartedPage: View {
         }
     }
     
-    @State private var showingDetail = false
+    @State private var isshowingDetail = false
+    @State private var isShowMainTabBar = false
     
     private var gradient: some View {
         LinearGradient(colors: [.darkGreen, .darkGreen.opacity(0.2)], startPoint: .bottom, endPoint: .top)
@@ -58,15 +59,15 @@ struct GetStartedPage: View {
     
     private var getStartedButton: some View {
         Button {
-            showingDetail.toggle()
+            isShowMainTabBar.toggle()
         } label: {
             Text(Constants.getStartedButtonLabel)
                 .bold()
                 .font(.system(size: 20))
                 .foregroundStyle(.linearGradient(colors: [.darkGreen, .darkGreen.opacity(0.2)], startPoint: .top, endPoint: .bottom))
         }
-        .fullScreenCover(isPresented: $showingDetail, content: {
-            ProductDetails()
+        .fullScreenCover(isPresented: $isShowMainTabBar, content: {
+            MainTabBarView()
         })
         .frame(width: 300, height: 55)
         .background(.white)
