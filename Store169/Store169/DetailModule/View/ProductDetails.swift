@@ -71,7 +71,6 @@ struct ProductDetails: View {
                         }
                     })
             } else {
-                // Fallback on earlier versions
             }
             
             Text("\(totalChars) / 300")
@@ -144,7 +143,6 @@ struct ProductDetails: View {
             .fontWeight(.heavy)
             .font(.system(size: 16))
             .foregroundStyle(.white)
-            
     }
     
     private var articleNumberLabel: some View {

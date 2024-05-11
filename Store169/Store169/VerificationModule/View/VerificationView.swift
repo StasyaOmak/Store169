@@ -102,7 +102,6 @@ struct VerificationView: View {
                         }
                     }
             } else {
-                // Fallback on earlier versions
             }
             if #available(iOS 17.0, *) {
                 TextField("", text: $numberTwo)
@@ -117,7 +116,6 @@ struct VerificationView: View {
                         }
                     }
             } else {
-                // Fallback on earlier versions
             }
             if #available(iOS 17.0, *) {
                 TextField("", text: $numberThree)
@@ -132,7 +130,6 @@ struct VerificationView: View {
                         }
                     }
             } else {
-                // Fallback on earlier versions
             }
             if #available(iOS 17.0, *) {
                 TextField("", text: $numberFour)
@@ -147,7 +144,6 @@ struct VerificationView: View {
                         }
                     }
             } else {
-                // Fallback on earlier versions
             }
         }
         
@@ -190,7 +186,6 @@ struct VerificationView: View {
                         .font(.system(size: 23))
                         .foregroundStyle(.white)
                 } else {
-                    // Fallback on earlier versions
                 }
             }
         })
@@ -232,7 +227,6 @@ struct VerificationView: View {
                 .bold()
                 .foregroundStyle(.darkGreen)
             } else {
-                // Fallback on earlier versions
             }
             
         }

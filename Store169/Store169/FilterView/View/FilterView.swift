@@ -18,7 +18,6 @@ struct FilterView: View {
         static let moreLabel = "More"
         static let backButtonIcon = "chevron.left"
         static let detailButtonIcon = "chevron.right"
-        
     }
 
     let rows: [GridItem] = [
@@ -66,7 +65,6 @@ struct FilterView: View {
                 }
         }
         .navigationBarBackButtonHidden(true)
-
     }
     
     @Environment(\.dismiss) private var dismiss
@@ -128,7 +126,6 @@ struct FilterView: View {
                 }
             }.padding(.top ,20)
             .padding(.trailing ,20)
-        
     }
     
     private var categoryScrollView: some View {
@@ -151,8 +148,6 @@ struct FilterView: View {
         .padding(.leading, 20)
         .scrollIndicators(.never)
     }
-        
-    
     
     private var pricesHeaderView: some View {
         Text(Constants.priceLabel)
@@ -230,11 +225,9 @@ struct FilterView: View {
                         Circle()
                             .stroke(.gray, lineWidth: 1))
             } else {
-                // Fallback on earlier versions
             }
         }
     }
-    
     
     private func updatePricePositionAppearance(_ position: CGFloat) {
         minPriceColor = filterViewModel.sliderValue > 1500

@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+/// Модель экрана профайла 
 class ProfileViewModel: ObservableObject {
     
     public var settings: [Setting] = [

@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+/// Экран профайла
 struct ProfileView: View {
     
     private enum Constants {
